@@ -30,23 +30,6 @@ function displayAverage(grades) {
   }
 }
 
-function calculateFinalGrade() {
-  var classActivity = document.getElementById('classActivity');
-  var fieldsets = document.querySelectorAll('fieldset');
-  var weightedAverage = 0;
-  var weightsTotal = 0;
-  for (var fieldset of fieldsets) {
-  weightedAverage += calculateAverage(fieldset.querySelectorAll('input')) * fieldset.dataset.weight;
-  weightsTotal += Number(fieldset.dataset.weight);
-  }
-    var averagesTotal = weightedAverage / weightsTotal;
-    if (isNaN(averagesTotal)) {
-    classActivity.value = '';
-  } else {
-    classActivity.value = 'Class activity: ' + averagesTotal.toFixed(1);
-  }
-}
-
 document.getElementById('calculator').addEventListener('click', function() {
   var listeningGrades = document.querySelectorAll('#listening > input');
   var listeningAverage = document.getElementById('listeningAverage');
