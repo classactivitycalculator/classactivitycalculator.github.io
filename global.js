@@ -1,60 +1,38 @@
-var i;
+    var form = document.querySelector('form');
 
-function detectChanges() {
-  var inputs = document.querySelectorAll('input');
-  for (i = 0; i < inputs.length; i++) {
-    if (inputs[i].value) {
-      return true;
+    function averageInputValues(fieldset) {
+      var totalValue = 0;
+      var totalNumber = 0;
+      var inputs = fieldset.querySelectorAll('input');
+      for (var input of inputs) {
+        if (!input.validity.valid) {
+          return;
+        }
+        totalValue += Number(input.value);
+        totalNumber += Boolean(input.value);
+      }
+      return totalValue / totalNumber;
     }
-  }
-}
 
-function calculateAverage(grades) {
-  var total = 0;
-  var count = 0;
-  for (i = 0; i < grades.length; i++) {
-    if (grades[i].value) {
-      total += Number(grades[i].value);
-      count++;
+    form.querySelector('[type="button"]').addEventListener('click', setOutputValues);
+
+    function detectChange() {
+      var inputs = form.querySelectorAll('input');
+      for (var input of inputs) {
+        if (input.value) {
+          return true;
+        }
+      }
     }
-  }
-  return total / count;
-}
 
-function displayAverage(grades) {
-  var avg = calculateAverage(grades);
-  if (isNaN(avg)) {
-    return 'Please enter a grade.';
-  } else {
-    return 'Average: ' + avg.toFixed(1);
-  }
-}
+    form.querySelector('[type="reset"]').addEventListener('click', function(event) {
+      if (detectChange() && !confirm('Your changes will be lost.\nAre you sure you want to reset?')) {
+        event.preventDefault();
+      }
+    });
 
-document.getElementById('calculator').addEventListener('click', function() {
-  var listeningGrades = document.querySelectorAll('#listening > input');
-  var listeningAverage = document.getElementById('listeningAverage');
-  listeningAverage.value = displayAverage(listeningGrades);
-
-  var readingGrades = document.querySelectorAll('#reading > input');
-  var readingAverage = document.getElementById('readingAverage');
-  readingAverage.value = displayAverage(readingGrades);
-
-  var writingGrades = document.querySelectorAll('#writing > input');
-  var writingAverage = document.getElementById('writingAverage');
-  writingAverage.value = displayAverage(writingGrades);
-
-calculateFinalGrade();
-
-});
-
-document.getElementById('resetter').addEventListener('click', function() {
-  if (detectChanges() && confirm('Your changes will be lost.\nAre you sure you want to reset?')) {
-    document.getElementById('form').reset();
-  }
-});
-
-window.addEventListener('beforeunload', function(event) {
-  if (detectChanges()) {
-    event.returnValue = 'Your changes may be lost.';
-  }
-});
+    window.addEventListener('beforeunload', function(event) {
+      if (detectChange()) {
+        event.returnValue = 'Your changes may be lost.';
+      }
+    });
