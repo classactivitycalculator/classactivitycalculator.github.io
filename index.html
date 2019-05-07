@@ -1,9 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>HTML Document Template</title>
-  </head>
-  <body>
-    <p>Hello, world!</p>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculate the class activity grades of the ILI students.">
+  <title>Class Activity Calculator</title>
+  <link rel="icon" href="favicon.ico">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 16px 0;
+      text-align: center;
+      background: linear-gradient(#999, #333);
+    }
+
+    img {
+      width: 36px;
+      height: 36px;
+      vertical-align: bottom;
+    }
+
+    h1 {
+      font-size: 1.125rem;
+      font-family: 'Times New Roman';
+      color: #FFF;
+      text-shadow: 0 3px #000;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      border-top: 2px solid;
+    }
+
+    a {
+      color: #FFF;
+    }
+
+    nav a {
+      padding: 12px 6px;
+      font: bold 0.75rem Verdana;
+      text-decoration: none;
+    }
+
+    nav a:not(:last-child) {
+      margin-right: 2px;
+    }
+
+    nav a:hover,
+    nav a:focus,
+    #current {
+      outline: 0;
+      border-top: 2px solid;
+      margin-top: -2px;
+    }
+
+    main,
+    div {
+      display: flex;
+    }
+
+    form {
+      margin: 32px auto;
+    }
+
+    fieldset {
+      margin: 0 0 16px;
+      padding: 12px 12px 0;
+      border: 1px solid #CCC;
+      background: linear-gradient(#FFF, #CCC);
+    }
+
+    legend,
+    input,
+    output,
+    button {
+      font-family: Arial;
+    }
+
+    legend,
+    button {
+      color: #333;
+    }
+
+    legend {
+      padding: 0 4px;
+      font-size: 0.875rem;
+    }
+
+    input,
+    button,
+    div output {
+      font-size: 0.833rem;
+    }
+
+    input {
+      width: 4em;
+    }
+
+    input:invalid {
+      outline: 1px solid red;
+    }
+
+    output {
+      color: #C00;
+    }
+
+    fieldset output {
+      display: block;
+      margin: 8px 0 8px 6px;
+      font-size: 0.75rem;
+    }
+
+    fieldset output::after {
+      content: "\00A0";
+    }
+    /* a placeholder */
+
+    div output {
+      margin: auto auto auto 6px;
+    }
+
+    footer {
+      padding: 12px;
+      background: #333;
+      font: 0.75rem Arial;
+      color: #FFF;
+    }
+
+    address {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="logo.png" alt="Logo">
+    <h1>Class Activity Calculator</h1>
+  </header>
+  <nav>
+    <a href="index.html" id="current">Adults: Old</a>
+    <a href="adults-new.html">Adults: New</a>
+    <a href="young-adults.html">Young Adults</a>
+    <a href="kids.html">Kids</a>
+  </nav>
+  <main>
+    <form autocomplete="off">
+      <fieldset data-weight="4">
+        <legend>Listening & Speaking</legend>
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <output></output>
+      </fieldset>
+      <fieldset data-weight="3">
+        <legend>Reading</legend>
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <output></output>
+      </fieldset>
+      <fieldset data-weight="1">
+        <legend>Writing</legend>
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <input type="number" step="any" min="0" max="100">
+        <output></output>
+      </fieldset>
+      <div>
+        <button type="button">Calculate</button>
+        <output></output>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </main>
+  <footer>
+    Share on <a href="https://t.me/share/url?url=https%3A%2F%2Fclassactivitycalculator.github.io%2F&text=Class%20Activity%20Calculator%3A%20Calculate%20the%20class%20activity%20grades%20of%20the%20ILI%20students." title="Telegram: Share Web Page">Telegram</a> |
+    <a href="https://www.facebook.com/dialog/share?app_id=2194746457255787&href=https%3A%2F%2Fclassactivitycalculator.github.io%2F" title="Post to Facebook">Facebook</a>
+    <address><a href="https://t.me/MortezaMirmojarabian" title="Telegram: Contact @MortezaMirmojarabian" rel="author">Give feedback</a></address>
+  </footer>
+  <script src="global.js"></script>
+  <script>
+    function setOutputValues() {
+      var totalWeightedAverage = 0;
+      var totalWeight = 0;
+      var fieldsets = form.querySelectorAll('fieldset');
+      for (var fieldset of fieldsets) {
+        var average = averageInputValues(fieldset);
+        var fieldsetOutput = fieldset.querySelector('output');
+        if (average == undefined) {
+          fieldsetOutput.value = 'You may only enter 0 to 100.';
+        } else if (isNaN(average)) {
+          fieldsetOutput.value = 'Please enter a grade.';
+        } else {
+          fieldsetOutput.value = 'avg: ' + average.toFixed(1);
+        }
+        totalWeightedAverage += average * fieldset.dataset.weight;
+        totalWeight += Number(fieldset.dataset.weight);
+      }
+      var classActivity = totalWeightedAverage / totalWeight;
+      var divOutput = form.querySelector('div output');
+      if (isNaN(classActivity)) {
+        divOutput.value = '';
+      } else {
+        divOutput.value = 'CA: ' + classActivity.toFixed(1);
+      }
+    }
+  </script>
+</body>
+
 </html>
