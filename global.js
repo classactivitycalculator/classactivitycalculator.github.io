@@ -1,3 +1,5 @@
+var form = document.querySelector('form');
+
 function averageInputValues(fieldset) {
   var totalValue = 0;
   var totalNumber = 0;
