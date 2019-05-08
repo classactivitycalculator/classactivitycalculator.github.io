@@ -95,10 +95,11 @@
       }
       var classActivity = totalWeightedAverage / totalWeight;
       var divOutput = form.querySelector('div output');
+      var max = form.querySelector('input').max;
       if (isNaN(classActivity)) {
         divOutput.value = '';
       } else {
-        divOutput.value = 'CA: ' + (classActivity * 20).toFixed(1); // The class activity grades must be calculated out of 100, even in the new grading system.
+        divOutput.value = 'CA: ' + (classActivity / (max / 100)).toFixed(1); // The class activity grades must be calculated out of 100, even in the new grading system.
       }
     }
   </script>
