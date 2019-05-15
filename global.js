@@ -25,7 +25,7 @@ function detectChange() {
   }
 }
 
-form.querySelector('[type="reset"]').addEventListener('click', function(event) {
+form.addEventListener('reset', function(event) {
   if (detectChange() && !confirm('Your changes will be lost.\nAre you sure you want to reset?')) {
     event.preventDefault();
   }
