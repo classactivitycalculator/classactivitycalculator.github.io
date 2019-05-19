@@ -79,32 +79,7 @@
     <a href="https://www.facebook.com/dialog/share?app_id=2194746457255787&href=https%3A%2F%2Fclassactivitycalculator.github.io%2Fkids.html" title="Post to Facebook">Facebook</a>
     <address><a href="https://t.me/MortezaMirmojarabian" title="Telegram: Contact @MortezaMirmojarabian" rel="author">Give feedback</a></address>
   </footer>
-  <script>
-    function setOutputValues() {
-      var totalAverage = 0;
-      var fieldsets = form.querySelectorAll('fieldset');
-      for (var fieldset of fieldsets) {
-        var average = averageInputValues(fieldset);
-        var fieldsetOutput = fieldset.querySelector('output');
-        if (average == undefined) {
-          fieldsetOutput.value = 'You may only enter 0 to 60.';
-        } else if (isNaN(average)) {
-          fieldsetOutput.value = 'Please enter a grade.';
-        } else {
-          fieldsetOutput.value = 'avg: ' + average.toFixed(1);
-        }
-        totalAverage += average;
-      }
-      var classActivity = totalAverage / fieldsets.length;
-      var divOutput = form.querySelector('div output');
-      if (isNaN(classActivity)) {
-        divOutput.value = '';
-      } else {
-        divOutput.value = 'CA: ' + classActivity.toFixed(1);
-      }
-    }
-  </script>
-  <script src="global.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
