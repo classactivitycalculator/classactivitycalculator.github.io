@@ -41,7 +41,7 @@ function setOutputValues() {
   if (isNaN(classActivity)) {
     divOutput.value = '';
   } else if (max == 5) { // Adults: New
-    divOutput.value = 'CA: ' + (classActivity / (max / 100)).toFixed(1); // The class activity grade must be calculated out of 100.
+    divOutput.value = 'CA: ' + (classActivity * 100 / max).toFixed(1); // The class activity grade must be calculated out of 100.
   } else {
     divOutput.value = 'CA: ' + classActivity.toFixed(1);
   }
