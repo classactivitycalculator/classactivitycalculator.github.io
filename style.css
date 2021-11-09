@@ -95,6 +95,7 @@ form {
 form h1 {
   font-size: 1rem;
   margin-bottom: 18px;
+  margin-left: 12px;
 }
 
 fieldset {
