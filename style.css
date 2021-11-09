@@ -16,7 +16,7 @@ img {
   vertical-align: bottom;
 }
 
-h1 {
+header h1 {
   font-size: 1.125rem;
   font-family: 'Times New Roman';
   color: #FFF;
@@ -28,7 +28,7 @@ nav {
   display: flex;
   justify-content: center;
   background: #333;
-  border-top: 2px solid;
+  border-top: 2px solid #000;
 }
 
 a {
@@ -39,27 +39,62 @@ nav a {
   padding: 12px 6px;
   font: bold 0.75rem Verdana;
   text-decoration: none;
-}
-
-nav a:not(:last-child) {
-  margin-right: 2px;
-}
-
-nav a:hover,
-nav a:focus,
-#current {
   outline: 0;
-  border-top: 2px solid;
+  transition: 280ms all 120ms ease-out;
+}
+
+nav > a {
+  margin-right: 5px;
+}
+
+nav > a,
+#adults {
+  border-top: 2px solid #000;
   margin-top: -2px;
 }
 
+nav > a:hover,
+#dropdown:hover #adults,
+nav > a:focus,
+#dropdown:focus-within #adults,
+#current {
+  border-top-color: #C00;
+}
+
+#dropdown a {
+  display: block;
+}
+
+#submenu {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  background: #333;
+  transition: 280ms all 120ms ease-out;
+}
+
+#dropdown:hover #submenu,
+#dropdown:focus-within #submenu {
+  max-height: 90px;
+}
+
+#submenu a:hover,
+#submenu a:focus {
+  background: #C00;
+}
+
 main,
-div {
+form div {
   display: flex;
 }
 
 form {
   margin: 32px auto;
+}
+
+form h1 {
+  font-size: 1rem;
+  margin-bottom: 18px;
 }
 
 fieldset {
@@ -69,6 +104,7 @@ fieldset {
   background: linear-gradient(#FFF, #CCC);
 }
 
+form h1,
 legend,
 input,
 output,
@@ -76,6 +112,7 @@ button {
   font-family: Arial;
 }
 
+form h1,
 legend,
 button {
   color: #333;
@@ -97,7 +134,7 @@ input {
 }
 
 input:invalid {
-  outline: 1px solid red;
+  outline: 1px solid #F00;
 }
 
 output {
@@ -113,6 +150,7 @@ fieldset output {
 fieldset output::after {
   content: "\00A0";
 }
+
 /* a placeholder */
 
 div output {
