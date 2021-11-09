@@ -48,15 +48,15 @@ nav > a {
 }
 
 nav > a,
-#adults {
+.adults {
   border-top: 2px solid #000;
   margin-top: -2px;
 }
 
 nav > a:hover,
-#dropdown:hover #adults,
+#dropdown:hover .adults,
 nav > a:focus,
-#dropdown:focus-within #adults,
+#dropdown:focus-within .adults,
 #current {
   border-top-color: #C00;
 }
