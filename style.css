@@ -57,7 +57,7 @@ nav > a:hover,
 #dropdown:hover #adults,
 nav > a:focus,
 #dropdown:focus-within #adults,
-#current {
+.current {
   border-top-color: #C00;
 }
 
