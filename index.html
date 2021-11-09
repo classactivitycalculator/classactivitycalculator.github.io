@@ -18,10 +18,17 @@
   <nav>
     <a href="index.html" id="current">Children</a>
     <a href="teenagers.html">Teenagers</a>
-    <a href="adults-elementary.html">Elementary</a>
+    <div id="dropdown">
+      <a tabindex="0" id="adults">Adults</a>
+      <div id="submenu">
+        <a href="adults-elementary.html">Elementary</a>
+        <a href="adults-other.html">Other</a>
+      </div>
+    </div>
   </nav>
   <main>
     <form autocomplete="off">
+      <h1>Children</h1>
       <fieldset>
         <legend>Listening</legend>
         <input type="number" step="any" min="0" max="60">
