@@ -5,7 +5,7 @@
 <style>
 
 #parent-flex-container {
-  display: flex; outline: 1px solid;
+  display: flex;
 }
 
 #child-flex-container {
@@ -15,16 +15,16 @@
 
 .content {
   background: aqua;
-  flex: 0 1 0;
+  flex-basis: 0px;
+  flex-grow: 0;
   overflow: hidden;
   transition: all 1s ease;
 }
 
 span:hover + .content {
-  flex: 1 0 0%;
+  flex-basis: 0%;
+  flex-grow: 1;
 }
-
-span, p {flex: 0 1 0;}
 
 </style>
   </head>
@@ -34,13 +34,12 @@ span, p {flex: 0 1 0;}
 
   <div id="child-flex-container">
 
-<span id='one'>Hover over me!</span>
+    <span>Hover over me!</span>
     <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 
-<span id='one'>Hover over me!</span>
+    <span>Hover over me!</span>
     <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 
-    <i>Rest of the page...</i>
 
 
   </div>
