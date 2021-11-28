@@ -4,47 +4,34 @@
     <title>HTML Document Template</title>
 <style>
 
-#parent-flex-container {
+html {
   display: flex;
 }
 
-#child-flex-container {
+body {
   display: flex;
   flex-direction: column;
 }
 
 .content {
   background: aqua;
-  flex-basis: 0px;
-  flex-grow: 0;
+  flex-basis: 0;
   overflow: hidden;
   transition: all 1s ease;
 }
 
 span:hover + .content {
-  flex-basis: 0%;
-  flex-grow: 1;
+  flex: 1;
 }
 
 </style>
   </head>
   <body>
 
-<div id="parent-flex-container">
-
-  <div id="child-flex-container">
-
     <span>Hover over me!</span>
     <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 
-    <span>Hover over me!</span>
-    <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-
-
-  </div>
-
-</div>
+    <i>Rest of the page...</i>
 
   </body>
 </html>
