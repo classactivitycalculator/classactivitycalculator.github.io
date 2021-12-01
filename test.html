@@ -4,34 +4,47 @@
     <title>HTML Document Template</title>
 <style>
 
-html {
+body {
+  display: table;
+}
+
+#parent-flex-container {
   display: grid;
 }
 
-body {
+#child-flex-container {
   display: flex;
   flex-direction: column;
 }
 
-.content {
+#content {
   background: aqua;
-  flex: 0 1 0px;
+  flex-basis: 0;
   overflow: hidden;
-  transition: all 900ms ease-in-out 900ms;
+  transition: all 1s ease;
 }
 
-body:hover .content {
-  flex: 1 0 0%;
+span:hover + #content {
+  flex: 1;
 }
 
 </style>
   </head>
   <body>
 
-    <span>Hover over me!</span>
-    <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+<div id="parent-flex-container">
 
-    <i>Rest of the page...</i>
+  <div id="child-flex-container">
+
+    <span>Hover over me!</span>
+
+    <div id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+    <p>Rest of the page content...</p>
+
+  </div>
+
+</div>
 
   </body>
 </html>
