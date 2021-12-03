@@ -72,17 +72,21 @@ nav > a:focus,
   margin-left: 1ch;
 }
 
-#submenu {
-  max-height: 0;
-  overflow: hidden;
+#submenu-container {
+  display: grid;
   position: absolute;
+}
+
+#submenu {
+  height: 0;
+  overflow: hidden;
   background: #333;
   transition: 280ms all 120ms ease-out;
 }
 
 #dropdown:hover #submenu,
 #dropdown:focus-within #submenu {
-  max-height: 90px;
+  height: 100%;
 }
 
 #submenu a:hover,
