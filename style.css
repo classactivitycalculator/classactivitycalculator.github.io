@@ -41,7 +41,7 @@ nav a {
   font: bold 0.75rem Verdana;
   text-decoration: none;
   outline: 0;
-  transition: 280ms all 120ms ease-out;
+  transition: 280ms ease-out 120ms;
 }
 
 nav > a,
@@ -81,7 +81,7 @@ nav > a:focus,
   height: 0;
   overflow: hidden;
   background: #333;
-  transition: 280ms all 120ms ease-out;
+  transition: 280ms ease-out 120ms;
 }
 
 #dropdown:hover #submenu,
