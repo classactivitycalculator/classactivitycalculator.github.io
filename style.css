@@ -55,7 +55,7 @@ nav > a:hover,
 nav > a:focus,
 #dropdown:focus-within .dropdown-title,
 #current {
-  border-top-color: #C00;
+  border-top-color: #A00;
 }
 
 #dropdown a {
@@ -91,7 +91,7 @@ nav > a:focus,
 
 #submenu a:hover,
 #submenu a:focus {
-  background: #C00;
+  background: #A00;
 }
 
 main,
